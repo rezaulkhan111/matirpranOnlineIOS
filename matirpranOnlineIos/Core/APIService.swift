@@ -4,7 +4,7 @@ class APIService {
     static let shared = APIService()
     
     func login(mobileNumber: String, password: String) async throws -> LoginResponse {
-        guard let url = URL(string: "UserLogIn") else {
+        guard let url = URL(string: "https://eapi.ecotechinnovation.com.bd/api/Account/UserLogIn") else {
             throw URLError(.badURL)
         }
         
@@ -16,6 +16,10 @@ class APIService {
         request.httpBody = try JSONEncoder().encode(body)
         
         let (data, response) = try await URLSession.shared.data(for: request)
+        
+        if let jsonString = String(data: data, encoding: .utf8) {
+            print("RAW JSON:", jsonString)
+        }
         
         guard let httpResponse = response as? HTTPURLResponse,
               httpResponse.statusCode == 200 else {
