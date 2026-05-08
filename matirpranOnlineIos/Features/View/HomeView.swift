@@ -76,7 +76,7 @@ struct HomeView: View {
             reqWeather: WeatherRequest(
                 units: "metric",
                 appid:
-                    "c84d678acbbcaae3795c856e22e081f8",
+                    "",
                 lat: "23.8103",
                 lon: "90.4125"
             )
