@@ -1,5 +1,5 @@
 import SwiftUI
 
 #Preview {
-   LoginView()
+   HomeView()
 }
